@@ -4,9 +4,8 @@ import numpy as np
 
 sim = Aer.get_backend('aer_simulator')  
 flag = 0
-# num_circuits = 2000 #Number of quantum circuits that will be simulated
-num_circuits = 1
-N = 5 # Number of qubits
+num_circuits = 10000 #Number of quantum circuits that will be simulated
+N = 11 # Number of qubits
 P = 10 # Number of gates per qubit
 
 filei = open(f'Dataset/input_N{N}_P{P}.dat','w')
