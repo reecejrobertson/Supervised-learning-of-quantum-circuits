@@ -5,8 +5,8 @@ import numpy as np
 sim = Aer.get_backend('aer_simulator')  
 flag = 0
 num_circuits = 1000000 #Number of quantum circuits that will be simulated
-N = 3 # Number of qubits
-P = 5 # Number of gates per qubit
+N = 11 # Number of qubits
+P = 3 # Number of gates per qubit
 
 filei = open(f'Dataset/input_N{N}_P{P}.dat','w')
 fileo = open(f'Dataset/output_N{N}_P{P}.dat','w')
@@ -51,8 +51,8 @@ for n in range(num_circuits):
         
     # Simulation of the quantum circuit
     qc.save_statevector()
-    qobj = assemble(qc)
-    result = sim.run(qobj).result()
+    # qobj = assemble(qc)
+    result = sim.run(qc).result()
     
     
     valcount = np.zeros((N)) # We store the expectation values here
