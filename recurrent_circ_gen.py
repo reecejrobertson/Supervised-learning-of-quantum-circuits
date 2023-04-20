@@ -4,7 +4,7 @@ import numpy as np
 
 sim = Aer.get_backend('aer_simulator')  
 flag = 0
-num_circuits = 10000 #Number of quantum circuits that will be simulated
+num_circuits = 500000 #Number of quantum circuits that will be simulated
 N = 11 # Number of qubits
 P = 10 # Number of gates per qubit
 
@@ -17,7 +17,7 @@ for n in range(num_circuits):
     
     for j in range(P): # Loop over the gates layers
 
-        fileo = open(f'Dataset/output_N{N}_P{j+1}.dat','w')
+        fileo = open(f'Dataset/output_N{N}_P{j+1}.dat','a')
 
         col = np.zeros(N)
         countarget = 0
