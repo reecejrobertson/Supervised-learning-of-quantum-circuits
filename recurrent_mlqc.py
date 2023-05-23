@@ -15,7 +15,6 @@ P = 10      # Number of gates per qubit
 BS = 512    # Batch size
 
 def DataLoad(N, P):
-
     """
     DataLoad returns the input to the neural network and the target values.
     The input is written via one-hot encoding.
@@ -106,8 +105,7 @@ if __name__ == '__main__':
     # Create a model and print its summary
     rnn = RnnModel(N)
     rnn.summary()
-    # plot_model(rnn, to_file='Plots/rnn.png', show_shapes=True, show_layer_names=True, expand_nested=True, dpi=96)
-
+    plot_model(rnn, to_file='Plots/rnn.png', show_shapes=True, show_layer_names=True, expand_nested=True, dpi=96)
 
     # Split in train and test set
     X_train, X_test, y_train, y_test = train_test_split(inputs, outputs, test_size = 0.2)
