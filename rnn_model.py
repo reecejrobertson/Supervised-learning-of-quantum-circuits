@@ -23,8 +23,6 @@ def DataLoad(N, P):
     in Qiskit.
     
     The parameters are the number of qubits N and the number of gates per qubit P.
-    You can choose to get only the expectation value of the first qubit by using 
-    first = True (default first = False)
     """
 
     # Load the input data
@@ -68,12 +66,9 @@ def DataLoad(N, P):
     return inp, out
 
 
-def RnnModel(num_outputs):
+def RnnModel():
     """
-    CnnModel returns the convolutional neural network model
-    
-    num_outputs is needed to specify whether the network should predict the expectation
-    values of all qubits or of the first qubit
+    Returns the recurrent neural network model.
     """
     rnn = Sequential()
     rnn.add(LSTM(units=(N*P), input_shape=(1, (N*P)), return_sequences=True, activation='relu'))                                              
@@ -87,10 +82,10 @@ def RnnModel(num_outputs):
 
 def r2(y_true, y_pred):
     """
-    r2 returns the coefficient of determination R^2
+    r2 returns the coefficient of determination R^2.
 
     The parameters are the target values y_true and the values predicted by the neural 
-    network y_pred
+    network y_pred.
     """
     SS_res =  K.sum(K.square( y_true-y_pred ))
     SS_tot = K.sum(K.square( y_true - K.mean(y_true) ) )
